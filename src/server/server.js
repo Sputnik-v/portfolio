@@ -1,6 +1,6 @@
 import express from 'express';
 import ReactDom from 'react-dom/server';
-import Header from "../shared/Header";
+import App from "../shared/App";
 import { indexHTML } from "./indexHTML";
 
 
@@ -12,7 +12,7 @@ app.use('/static', express.static('./dist/client'))
 
 app.get('/', (req, res) => {
   res.send(
-    indexHTML(ReactDom.renderToString(Header()))
+    indexHTML(ReactDom.renderToString(App()))
   )
 });
 

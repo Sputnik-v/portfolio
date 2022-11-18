@@ -22,10 +22,29 @@ module.exports = {
         test: /\.[tj]sx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+            modules: {
+              mode: 'local',
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
+            }
+          }
+        ]
+      },
+
     ]
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
-  },
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  }
 }

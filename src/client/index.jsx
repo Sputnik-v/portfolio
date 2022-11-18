@@ -1,13 +1,12 @@
 // @ts-ignore
 import React from "react";
-import {createRoot} from 'react-dom/client';
-import Header from "../shared/Header";
-
-const container = document.getElementById('root');
-const root = createRoot(container);
+import { createRoot } from 'react-dom/client';
+import App from "../shared/App";
 
 window.addEventListener('load', () => {
-    root.render(<Header/>);
+    const container = document.getElementById('app');
+    const root = createRoot(container); // createRoot(container!) if you use TypeScript
+    root.render(<App/>);
 })
 
 
